@@ -11,7 +11,9 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'rbac' => 'common\modules\rbac\Module',
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -48,4 +50,9 @@ return [
         
     ],
     'params' => $params,
+    'as access' =>[
+        'allowActions' => [
+            'rbac/*',
+        ]
+    ]
 ];
